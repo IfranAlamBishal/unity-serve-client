@@ -17,12 +17,12 @@ const Nav = () => {
         </li>
     </>
 
-    const btns = <div className=" flex flex-col lg:flex-row gap-4 px-5 mt-2 ">
-        <Link to="/register" className=" btn btn-primary text-base font-medium">Register</Link>
-        <Link to="/login" className=" btn btn-primary text-base font-medium">Log In</Link>
+    const btns = <div className=" flex flex-col lg:flex-row gap-4 px-5 mt-3 lg:mt-0">
+        <Link to="/register" className=" btn btn-primary text-base font-semibold">Register</Link>
+        <Link to="/login" className=" btn btn-primary text-base font-semibold">Log In</Link>
     </div>
     return (
-        <div className=" bg-white">
+        <div className=" bg-white mb-5">
             <div className="navbar bg-base-100 w-5/6 mx-auto pt-4">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -34,7 +34,7 @@ const Nav = () => {
                             {btns}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost text-3xl lg:text-5xl font-bold text-blue-600 lg:h-20">Unity Serve</Link>
+                    <Link to="/" className="btn btn-ghost text-3xl lg:text-5xl font-bold text-blue-500 lg:h-20">Unity Serve</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-base font-medium">
