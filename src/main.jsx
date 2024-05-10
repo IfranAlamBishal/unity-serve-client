@@ -9,6 +9,8 @@ import './index.css'
 import Home from './Components/Home/Home.jsx';
 import NeedVolunteer from './Components/NeedVolunteer/NeedVolunteer.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
+import LogIn from './Components/Common/LogIn.jsx';
+import Register from './Components/Common/Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,9 +34,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
+        element: <LogIn></LogIn>
       },
       {
         path: "/register",
+        element: <Register></Register>
       }
     ],
   },
