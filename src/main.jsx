@@ -15,6 +15,7 @@ import AuthProvider from './Components/Providers/AuthProvider.jsx';
 import Protected from './Components/Protected/Protected.jsx';
 import VolunteerPost from './Components/NeedVolunteer/VolunteerPost.jsx';
 import MyPost from './Components/User/MyPost.jsx';
+import Profile from './Components/User/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/Profile",
+        element: <Protected><Profile></Profile></Protected>
       }
     ],
   },

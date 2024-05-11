@@ -59,7 +59,7 @@ const Register = () => {
         <div>
             <div className="hero min-h-screen bg-blue-50 p-5">
                 <div className="hero-content flex-col lg:flex-row gap-10">
-                    <div className="text-center lg:text-right lg:ml-5">
+                    <div className="text-center lg:text-right lg:ml-3">
                         <h1 className="text-5xl font-bold">Register now!</h1>
                         <p className="py-6">Join our community of passionate volunteers and start making a difference today!!</p>
                     </div>
