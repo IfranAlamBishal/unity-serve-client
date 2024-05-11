@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Banner from "./Banner";
+import NeedVolunteerNow from "./NeedVolunteerNow/NeedVolunteerNow";
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <div className=" w-5/6 mx-auto">
 
             <div className="flex justify-center">
                 {
@@ -22,6 +23,7 @@ const Home = () => {
                 }
             </div>
             <Banner></Banner>
+            <NeedVolunteerNow></NeedVolunteerNow>
         </div>
     );
 };
