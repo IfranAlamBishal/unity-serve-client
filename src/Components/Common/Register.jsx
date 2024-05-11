@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const Register = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const { googleLogIn } = useContext(AuthContext);
+    const { googleLogIn, createUser, updateName, updatePhoto } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const handleRegister = e => {
@@ -26,6 +26,18 @@ const Register = () => {
             toast.error('Password length must be at least 6 characters containing at least an uppercase(A-Z) and a lowercase(a-z).');
             return;
         }
+
+        createUser(email, password)
+        .then(() => {
+            toast("Registered Successfully!!");
+            updateName(name);
+            updatePhoto(photo);
+            e.target.reset();
+            navigate('/');
+        })
+        .catch(error => {
+            toast.error(error.massage);
+        })
     }
 
     const handleGoogleLogIn = () => {

@@ -12,6 +12,9 @@ import ErrorPage from './Components/ErrorPage.jsx';
 import LogIn from './Components/Common/LogIn.jsx';
 import Register from './Components/Common/Register.jsx';
 import AuthProvider from './Components/Providers/AuthProvider.jsx';
+import Protected from './Components/Protected/Protected.jsx';
+import VolunteerPost from './Components/NeedVolunteer/VolunteerPost.jsx';
+import MyPost from './Components/User/MyPost.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,13 +28,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/need_volunteer",
-        element: <NeedVolunteer></NeedVolunteer>,
+        element: <Protected><NeedVolunteer></NeedVolunteer></Protected>,
       },
       {
         path: "/volunteer_post",
+        element: <Protected><VolunteerPost></VolunteerPost></Protected>,
       },
       {
         path: "/my_post",
+        element: <Protected><MyPost></MyPost></Protected>,
       },
       {
         path: "/login",

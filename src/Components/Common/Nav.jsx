@@ -4,6 +4,8 @@ import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaCircleUser } from "react-icons/fa6";
+import logo from '../../assets/icons/logo-blue.png'
 
 
 const Nav = () => {
@@ -46,6 +48,16 @@ const Nav = () => {
         {
             user ?
                 <div className=" flex flex-col lg:flex-row gap-4 px-5 mt-3 lg:mt-0">
+                    {
+                        user.photoURL ?
+                            <div className="tooltip tooltip-bottom pt-2 pl-2" data-tip={user.email}>
+                                <Link to="/Profile" ><img src={user.photoURL} alt="" className="w-8 h-8 my-auto rounded-full " /></Link>
+                            </div>
+                            :
+                            <div className="w-9 h-9 my-auto pt-2 pl-2 tooltip tooltip-bottom" data-tip={user.email}>
+                                <Link to="/Profile" ><FaCircleUser /></Link>
+                            </div>
+                    }
                     <Link to='/' onClick={handleLogOut} className=" btn btn-error text-white text-base font-semibold">Log Out</Link>
                 </div>
                 :
@@ -72,7 +84,10 @@ const Nav = () => {
                             {btns}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost text-3xl lg:text-5xl font-bold text-blue-500 lg:h-20">Unity Serve</Link>
+                    <Link to="/" className="btn btn-ghost  text-blue-500 lg:h-20"><div className=' flex flex-row'>
+                        <img src={logo} alt="" className=' w-12 h-12 mr-2 text-blue-500' />
+                        <h3 className=" text-3xl lg:text-5xl font-bold">Unity Serve</h3>
+                    </div></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-base font-medium">

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,10 +8,12 @@ import Swal from "sweetalert2";
 
 const LogIn = () => {
 
-    const { googleLogIn } = useContext(AuthContext)
+    const { googleLogIn, logIn } = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
 
     const [showPassword, setShowPassword] = useState(false);
+
 
     const forgotPassword = () => {
         toast("Sorry! This feature isn't available yet.");
@@ -21,18 +23,42 @@ const LogIn = () => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(email, password);
+        const passwordCheck = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+        if (!passwordCheck.test(password)) {
+            toast.error('Password length must be at least 6 characters containing at least an uppercase(A-Z) and a lowercase(a-z).');
+            return;
+        }
+
+        logIn(email, password)
+        .then(() => {
+            Swal.fire({
+                title: "Logged In!",
+                text: "You've successfully logged in.",
+                icon: "success"
+            });
+            e.target.reset();
+            navigate(location?.state ? location.state : "/")
+        }
+        )
+        .catch(() => {
+            toast.error("Invalid email or password.");
+        }
+        )
     }
+
+    
 
     const handleGoogleLogIn = () => {
         googleLogIn()
         .then(() => {
             Swal.fire({
-                title: "logged In!",
+                title: "Logged In!",
                 text: "You've successfully logged in.",
                 icon: "success"
             });
-            navigate('/')
+            navigate(location?.state ? location.state : "/")
+
 
         })
         .catch(error => {
