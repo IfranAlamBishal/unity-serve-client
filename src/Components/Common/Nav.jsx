@@ -20,7 +20,7 @@ const Nav = () => {
                 <li>
                     <details>
                         <summary>My Profile</summary>
-                        <ul className="p-2 w-40 lg:border ">
+                        <ul className="p-2 w-40 lg:border z-[1]">
                             <li><NavLink to="/volunteer_post">Add Volunteer Post</NavLink></li>
                             <li><NavLink to="/my_post">Manage My Post</NavLink></li>
                         </ul>

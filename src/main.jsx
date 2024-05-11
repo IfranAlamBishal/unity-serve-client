@@ -17,6 +17,7 @@ import VolunteerPost from './Components/NeedVolunteer/VolunteerPost.jsx';
 import MyPost from './Components/User/MyPost.jsx';
 import Profile from './Components/User/Profile.jsx';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,11 +27,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () =>  fetch('../public/post.json')
+        loader: () =>  fetch('post.json')
       },
       {
         path: "/need_volunteer",
         element: <Protected><NeedVolunteer></NeedVolunteer></Protected>,
+        loader: () =>  fetch('post.json')
       },
       {
         path: "/volunteer_post",
