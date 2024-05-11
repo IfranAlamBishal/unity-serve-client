@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Banner from "./Banner";
 
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
                     spinner && <span className="loading text-info w-24"></span>
                 }
             </div>
-            <h2>This is Home</h2>
+            <Banner></Banner>
         </div>
     );
 };
