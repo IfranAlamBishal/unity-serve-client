@@ -1,10 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
+
+    const { googleLogIn } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -20,7 +25,19 @@ const LogIn = () => {
     }
 
     const handleGoogleLogIn = () => {
+        googleLogIn()
+        .then(() => {
+            Swal.fire({
+                title: "logged In!",
+                text: "You've successfully logged in.",
+                icon: "success"
+            });
+            navigate('/')
 
+        })
+        .catch(error => {
+            toast.error(error.message);
+        })
     }
     return (
         <div>
@@ -29,7 +46,7 @@ const LogIn = () => {
                     <div className="text-center lg:text-left lg:ml-5">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">Unlock opportunities to make a difference with just a click – <br />
-                        log in and let your volunteering journey begin!</p>
+                            log in and let your volunteering journey begin!</p>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-white pb-8">
                         <form onSubmit={handleLogIn} className="card-body">

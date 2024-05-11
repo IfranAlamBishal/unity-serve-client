@@ -11,12 +11,13 @@ import NeedVolunteer from './Components/NeedVolunteer/NeedVolunteer.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import LogIn from './Components/Common/LogIn.jsx';
 import Register from './Components/Common/Register.jsx';
+import AuthProvider from './Components/Providers/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    errorElement:<ErrorPage></ErrorPage>,
+    element: <App />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -46,6 +47,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

@@ -1,11 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../Providers/AuthProvider'
+import Swal from "sweetalert2";
 
 const Register = () => {
 
     const [showPassword, setShowPassword] = useState(false);
+    const { googleLogIn } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleRegister = e => {
         e.preventDefault()
@@ -14,18 +18,30 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
-        console.log(name,photo,email,password)
+        console.log(name, photo, email, password)
 
         const passwordCheck = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-        if(!passwordCheck.test(password)){
+        if (!passwordCheck.test(password)) {
             toast.error('Password length must be at least 6 characters containing at least an uppercase(A-Z) and a lowercase(a-z).');
             return;
         }
     }
 
     const handleGoogleLogIn = () => {
+        googleLogIn()
+            .then(() => {
+                Swal.fire({
+                    title: "Registered!",
+                    text: "You've successfully registered.",
+                    icon: "success"
+                });
+                navigate('/')
 
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
     }
     return (
         <div>

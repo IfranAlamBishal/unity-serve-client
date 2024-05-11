@@ -1,26 +1,64 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Nav = () => {
 
+    const { user, logOut } = useContext(AuthContext)
+
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to="/need_volunteer">Need Volunteer</NavLink></li>
-        <li>
-            <details>
-                <summary>My Profile</summary>
-                <ul className="p-2 w-40 lg:border ">
-                    <li><NavLink to="/volunteer_post">Add Volunteer Post</NavLink></li>
-                    <li><NavLink to="/my_post">Manage My Post</NavLink></li>
-                </ul>
-            </details>
-        </li>
+        {
+            user && <>
+                <li>
+                    <details>
+                        <summary>My Profile</summary>
+                        <ul className="p-2 w-40 lg:border ">
+                            <li><NavLink to="/volunteer_post">Add Volunteer Post</NavLink></li>
+                            <li><NavLink to="/my_post">Manage My Post</NavLink></li>
+                        </ul>
+                    </details>
+                </li>
+            </>
+        }
     </>
 
-    const btns = <div className=" flex flex-col lg:flex-row gap-4 px-5 mt-3 lg:mt-0">
-        <Link to="/register" className=" btn btn-primary text-base font-semibold">Register</Link>
-        <Link to="/login" className=" btn btn-primary text-base font-semibold">Log In</Link>
-    </div>
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: "Logged out!",
+                    text: "You've successfully logged out.",
+                    icon: "success"
+                });
+            })
+            .catch(error => {
+                toast.error(error.massage)
+            })
+    }
+
+    const btns = <>
+        {
+            user ?
+                <div className=" flex flex-col lg:flex-row gap-4 px-5 mt-3 lg:mt-0">
+                    <Link to='/' onClick={handleLogOut} className=" btn btn-error text-white text-base font-semibold">Log Out</Link>
+                </div>
+                :
+                <div className=" flex flex-col lg:flex-row gap-4 px-5 mt-3 lg:mt-0">
+                    <Link to="/register" className=" btn btn-primary text-base font-semibold">Register</Link>
+                    <Link to="/login" className=" btn btn-primary text-base font-semibold">Log In</Link>
+                </div>
+        }
+    </>
+
+
+
+
     return (
         <div className=" bg-white mb-5">
             <div className="navbar bg-base-100 w-5/6 mx-auto pt-4">
@@ -45,6 +83,7 @@ const Nav = () => {
                     {btns}
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
