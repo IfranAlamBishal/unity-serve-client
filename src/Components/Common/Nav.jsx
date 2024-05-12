@@ -22,7 +22,7 @@ const Nav = () => {
                         <summary>My Profile</summary>
                         <ul className="p-2 w-40 lg:border z-[1]">
                             <li><NavLink to="/volunteer_post">Add Volunteer Post</NavLink></li>
-                            <li><NavLink to="/my_post">Manage My Post</NavLink></li>
+                            <li><NavLink to="/manage_posts">Manage My Post</NavLink></li>
                         </ul>
                     </details>
                 </li>

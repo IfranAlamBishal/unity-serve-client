@@ -14,10 +14,10 @@ import Register from './Components/Common/Register.jsx';
 import AuthProvider from './Components/Providers/AuthProvider.jsx';
 import Protected from './Components/Protected/Protected.jsx';
 import VolunteerPost from './Components/NeedVolunteer/VolunteerPost.jsx';
-import MyPost from './Components/User/MyPost.jsx';
 import Profile from './Components/User/Profile.jsx';
 import ViewDetails from './Components/Home/ViewDetails.jsx';
 import BeAVolunteer from './Components/Home/BeAVolunteer.jsx';
+import ManagePosts from './Components/User/ManagePosts/ManagePosts.jsx';
 
 
 const router = createBrowserRouter([
@@ -51,8 +51,8 @@ const router = createBrowserRouter([
         element: <Protected><VolunteerPost></VolunteerPost></Protected>,
       },
       {
-        path: "/my_post",
-        element: <Protected><MyPost></MyPost></Protected>,
+        path: "/manage_posts",
+        element: <Protected><ManagePosts></ManagePosts></Protected>,
       },
       {
         path: "/login",
