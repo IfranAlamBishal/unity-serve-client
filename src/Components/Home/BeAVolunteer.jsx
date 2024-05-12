@@ -11,6 +11,15 @@ const BeAVolunteer = () => {
     const { _id, thumbnail, title, posted_by, deadline, description, location, volunteers_needed } = post
 
     const handleRequest = () => {
+
+        const volunteerRequest = {
+            name : displayName,
+            email : email,
+            post_id : _id,
+            title : title,
+            thumbnail : thumbnail
+        }
+
         Swal.fire({
             title: "Are you sure?",
             text: "You want to join as a volunteer?",
@@ -21,11 +30,24 @@ const BeAVolunteer = () => {
             confirmButtonText: "Yes, I want to join!"
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Requested!",
-                    text: "You've successfully requested as a volunteer. Please wait for the confirmation.",
-                    icon: "success"
-                });
+                fetch('http://localhost:5000/request_as_volunteer', {
+                    method: 'POST',
+                    headers: {
+                        'content-type' : 'application/json'
+                    },
+                    body: JSON.stringify(volunteerRequest)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.insertedId){
+                        Swal.fire({
+                            title: "Requested!",
+                            text: "You've successfully requested as a volunteer. Please wait for the confirmation.",
+                            icon: "success"
+                        });
+                    }
+                })
             }
         });
     }
@@ -48,9 +70,9 @@ const BeAVolunteer = () => {
                 </div>
             </div>
 
-            <div className="card card-compact max-w-96 mx-auto bg-blue-50 shadow-xl p-4">
+            <div className="card card-compact max-w-96 h-[400px]  mx-auto my-auto bg-blue-50 shadow-xl p-4">
                 <h2 className=" text-2xl font-bold mx-auto my-4">Applicant</h2>
-                <hr className=" w-2/3 mx-auto mb-6 border-blue-600"/>
+                <hr className=" w-2/3 mx-auto mb-6 border-blue-600" />
 
                 <h2 className=" text-xl font-bold mb-3">Name: {displayName}</h2>
                 <p className=" font-medium mb-3">Email: {email}</p>
