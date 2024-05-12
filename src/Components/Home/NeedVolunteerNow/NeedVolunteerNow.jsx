@@ -5,6 +5,7 @@ const NeedVolunteerNow = () => {
 
     const volunteerPosts = useLoaderData()
     const posts = volunteerPosts.slice(0, 6);
+    // console.log(volunteerPosts)
 
     const scrollUp = () => {
         window.scrollTo({

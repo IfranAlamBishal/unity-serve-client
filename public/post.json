@@ -7,7 +7,9 @@
         "category": "Healthcare",
         "location": "Cox's Bazar, Bangladesh",
         "volunteers_needed": 10,
-        "deadline": "15-06-2024"
+        "deadline": "15-06-2024",
+        "posted_by": "Healthy BD"
+        
       },
       {
         "thumbnail": "https://i.ibb.co/GJrk23C/Education-Support-for-Street-Children2.jpg",
@@ -16,7 +18,8 @@
         "category": "Education",
         "location": "Dhaka, Bangladesh",
         "volunteers_needed": 5,
-        "deadline": "20-06-2024"
+        "deadline": "20-06-2024",
+        "posted_by": "LightUp Nation"
       },
       {
         "thumbnail": "https://i.ibb.co/vJJRGBS/Community-Kitchen-Assistance.webp",
@@ -25,7 +28,8 @@
         "category": "Social service",
         "location": "Dhaka, Bangladesh",
         "volunteers_needed": 7,
-        "deadline": "25-06-2024"
+        "deadline": "25-06-2024",
+        "posted_by": "Food For All"
       },
       {
         "thumbnail": "https://i.ibb.co/QpCn4zy/Animal-Welfare-Awareness-Campaign.jpg",
@@ -34,7 +38,8 @@
         "category": "Animal welfare",
         "location": "Various locations in Bangladesh",
         "volunteers_needed": 8,
-        "deadline": "01-07-2024"
+        "deadline": "01-07-2024",
+        "posted_by": "AnimalGuardians Network"
       },
       {
         "thumbnail": "https://i.ibb.co/2n5fWGN/Environmental-Cleanup-Initiative.webp",
@@ -43,7 +48,8 @@
         "category": "Environment",
         "location": "Chittagong, Bangladesh",
         "volunteers_needed": 15,
-        "deadline": "05-07-2024"
+        "deadline": "05-07-2024",
+        "posted_by": "Green Bangladesh"
       },
       {
         "thumbnail": "https://i.ibb.co/9VFyZsS/companionship-and-support-to-elderly-citizens2.jpg",
@@ -52,7 +58,8 @@
         "category": "Social service",
         "location": "Rajshahi, Bangladesh",
         "volunteers_needed": 4,
-        "deadline": "10-07-2024"
+        "deadline": "10-07-2024",
+        "posted_by": "Hope"
       }
     
     ]
