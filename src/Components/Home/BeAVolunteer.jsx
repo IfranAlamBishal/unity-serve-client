@@ -1,55 +1,77 @@
 import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
 
 const BeAVolunteer = () => {
 
     const { user } = useContext(AuthContext)
     const { displayName, email } = user
+
+
+
     const post = useLoaderData();
     const { _id, thumbnail, title, posted_by, deadline, description, location, volunteers_needed } = post
 
     const handleRequest = () => {
 
         const volunteerRequest = {
-            name : displayName,
-            email : email,
-            post_id : _id,
-            title : title,
-            thumbnail : thumbnail
+            name: displayName,
+            email: email,
+            post_id: _id,
+            title: title,
+            thumbnail: thumbnail,
+            deadline : deadline
         }
 
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You want to join as a volunteer?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, I want to join!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch('http://localhost:5000/request_as_volunteer', {
-                    method: 'POST',
-                    headers: {
-                        'content-type' : 'application/json'
-                    },
-                    body: JSON.stringify(volunteerRequest)
-                })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if(data.insertedId){
-                        Swal.fire({
-                            title: "Requested!",
-                            text: "You've successfully requested as a volunteer. Please wait for the confirmation.",
-                            icon: "success"
-                        });
-                    }
-                })
-            }
-        });
+        fetch('http://localhost:5000/volunter_requests')
+            .then(res => res.json())
+            .then(data => {
+                const requests = data
+                const checkEmail = requests.filter(check => check.email == email)
+                const checkRequest = checkEmail.filter(check => check.post_id == _id)
+                console.log(checkRequest)
+                if (checkRequest.length > 0) {
+                    toast.error('Already requested to join');
+                    return;
+                }
+                else {
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You want to join as a volunteer?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, I want to join!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            fetch('http://localhost:5000/request_as_volunteer', {
+                                method: 'POST',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify(volunteerRequest)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data)
+                                    if (data.insertedId) {
+                                        Swal.fire({
+                                            title: "Requested!",
+                                            text: "You've successfully requested as a volunteer. Please wait for the confirmation.",
+                                            icon: "success"
+                                        });
+                                    }
+                                })
+                        }
+                    });
+                }
+            })
+
+
     }
     return (
         <div className=" w-5/6 mx-auto flex flex-col lg:flex-row gap-6 justify-between">
@@ -80,6 +102,7 @@ const BeAVolunteer = () => {
                     <Link onClick={handleRequest} className="btn btn-primary text-base font-semibold">Request</Link>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
