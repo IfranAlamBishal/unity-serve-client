@@ -29,22 +29,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/volunter_posts'),
+        loader: () => fetch('https://unity-serve-server.vercel.app/volunter_posts'),
       },
       {
         path: "/need_volunteer",
         element: <Protected><NeedVolunteer></NeedVolunteer></Protected>,
-        loader: () => fetch('http://localhost:5000/volunter_posts'),
+        loader: () => fetch('https://unity-serve-server.vercel.app/volunter_posts'),
       },
       {
         path: "/view_details/:id",
         element: <Protected><ViewDetails></ViewDetails></Protected>,
-        loader: ({params}) => fetch(`http://localhost:5000/volunter_posts/${params.id}`)
+        loader: ({params}) => fetch(`https://unity-serve-server.vercel.app/volunter_posts/${params.id}`)
       },
       {
         path: "/be_a_volunteer/:id",
         element: <Protected><BeAVolunteer></BeAVolunteer></Protected>,
-        loader: ({params}) => fetch(`http://localhost:5000/volunter_posts/${params.id}`)
+        loader: ({params}) => fetch(`https://unity-serve-server.vercel.app/volunter_posts/${params.id}`)
       },
       {
         path: "/volunteer_post",

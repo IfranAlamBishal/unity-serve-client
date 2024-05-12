@@ -23,10 +23,10 @@ const BeAVolunteer = () => {
             post_id: _id,
             title: title,
             thumbnail: thumbnail,
-            deadline : deadline
+            deadline: deadline
         }
 
-        fetch('http://localhost:5000/volunter_requests')
+        fetch('https://unity-serve-server.vercel.app/volunter_requests')
             .then(res => res.json())
             .then(data => {
                 const requests = data
@@ -48,7 +48,7 @@ const BeAVolunteer = () => {
                         confirmButtonText: "Yes, I want to join!"
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            fetch('http://localhost:5000/request_as_volunteer', {
+                            fetch('https://unity-serve-server.vercel.app/request_as_volunteer', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json'
