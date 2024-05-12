@@ -17,6 +17,7 @@ import VolunteerPost from './Components/NeedVolunteer/VolunteerPost.jsx';
 import MyPost from './Components/User/MyPost.jsx';
 import Profile from './Components/User/Profile.jsx';
 import ViewDetails from './Components/Home/ViewDetails.jsx';
+import BeAVolunteer from './Components/Home/BeAVolunteer.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: "/view_details/:id",
         element: <Protected><ViewDetails></ViewDetails></Protected>,
+        loader: ({params}) => fetch(`http://localhost:5000/volunter_posts/${params.id}`)
+      },
+      {
+        path: "/be_a_volunteer/:id",
+        element: <Protected><BeAVolunteer></BeAVolunteer></Protected>,
         loader: ({params}) => fetch(`http://localhost:5000/volunter_posts/${params.id}`)
       },
       {

@@ -1,9 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ViewDetails = () => {
 
     const post = useLoaderData()
-    const { thumbnail, title, posted_by, deadline, description, location, volunteers_needed } = post
+    const { _id, thumbnail, title, posted_by, deadline, description, location, volunteers_needed } = post
     return (
         <div className="card card-compact w-5/6 lg:w-2/3 mx-auto bg-blue-50 shadow-xl">
             <figure><img src={thumbnail} alt="post thumbnail" className=" w-full h-80" /></figure>
@@ -17,7 +17,7 @@ const ViewDetails = () => {
                     <p className=" opacity-85">Deadline: {deadline}</p>
                 </div>
                 <div className="card-actions justify-center my-5">
-                    <button className="btn btn-primary text-base font-semibold">Be a Volunteer</button>
+                    <Link to={`/be_a_volunteer/${_id}`} className="btn btn-primary text-base font-semibold">Be a Volunteer</Link>
                 </div>
             </div>
         </div>
