@@ -23,6 +23,7 @@ const BeAVolunteer = () => {
             post_id: _id,
             title: title,
             thumbnail: thumbnail,
+            location: location,
             deadline: deadline
         }
 
@@ -32,7 +33,6 @@ const BeAVolunteer = () => {
                 const requests = data
                 const checkEmail = requests.filter(check => check.email == email)
                 const checkRequest = checkEmail.filter(check => check.post_id == _id)
-                console.log(checkRequest)
                 if (checkRequest.length > 0) {
                     toast.error('Already requested to join');
                     return;
@@ -57,7 +57,7 @@ const BeAVolunteer = () => {
                             })
                                 .then(res => res.json())
                                 .then(data => {
-                                    console.log(data)
+                                    // console.log(data)
                                     if (data.insertedId) {
                                         Swal.fire({
                                             title: "Requested!",
