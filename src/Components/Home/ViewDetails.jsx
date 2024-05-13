@@ -9,7 +9,7 @@ const ViewDetails = () => {
             <figure><img src={thumbnail} alt="post thumbnail" className=" w-full h-80" /></figure>
             <div className="card-body font-semibold">
                 <h2 className=" text-2xl lg:text-4xl text-center font-bold mb-2">{title}</h2>
-                <p className=" text-center opacity-85 mb-4">Posted by: {posted_by}</p>
+                <p className=" text-center opacity-85 mb-4">Organizer: {posted_by}</p>
                 <p className=" text-lg mb-5 px-3">{description}</p>
                 <div className=" flex flex-col lg:flex-row gap-3 justify-around text-center">
                     <p className=" text-center opacity-85">Place: {location}</p>
