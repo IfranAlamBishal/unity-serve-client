@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .errorPageBg {
-  background-image: url('../src/assets/Bg-Error.jpg');
+  background-image: url('https://i.ibb.co/KVR8xMt/6333074.jpg');
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;

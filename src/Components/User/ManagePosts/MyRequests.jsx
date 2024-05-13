@@ -15,12 +15,11 @@ const MyRequests = ({ request }) => {
             confirmButtonText: "Yes, I want to cancel"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/volunter_requests/${id}`, {
+                fetch(`https://unity-serve-server.vercel.app/volunter_requests/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        // console.log(data)
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Cancelled!",
