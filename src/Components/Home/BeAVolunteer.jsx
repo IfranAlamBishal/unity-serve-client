@@ -27,7 +27,7 @@ const BeAVolunteer = () => {
             deadline: deadline
         }
 
-        fetch('https://unity-serve-server.vercel.app/volunter_requests')
+        fetch('https://unity-serve-server.vercel.app/volunteer_requests')
             .then(res => res.json())
             .then(data => {
                 const requests = data

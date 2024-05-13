@@ -15,7 +15,7 @@ const MyRequests = ({ request }) => {
             confirmButtonText: "Yes, I want to cancel"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://unity-serve-server.vercel.app/volunter_requests/${id}`, {
+                fetch(`https://unity-serve-server.vercel.app/volunteer_requests/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

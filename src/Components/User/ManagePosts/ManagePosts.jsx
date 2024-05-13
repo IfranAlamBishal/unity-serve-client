@@ -10,7 +10,7 @@ const ManagePosts = () => {
     const [myRequests, setMyRequests] = useState([]);
 
     useEffect(() => {
-        fetch('https://unity-serve-server.vercel.app/volunter_posts')
+        fetch('https://unity-serve-server.vercel.app/volunteer_posts')
             .then(res => res.json())
             .then(posts => {
                 const myPost = posts.filter(post => post.email == user.email)
@@ -22,7 +22,7 @@ const ManagePosts = () => {
                 }
             })
 
-        fetch('https://unity-serve-server.vercel.app/volunter_requests')
+        fetch('https://unity-serve-server.vercel.app/volunteer_requests')
             .then(res => res.json())
             .then(requests => {
                 const myRequest = requests.filter(request => request.email == user.email)
