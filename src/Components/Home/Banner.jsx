@@ -11,7 +11,7 @@ const Banner = () => {
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 bottom-1">
-                        <Link to="/need_volunteer" className=" btn btn-primary text-xl font-semibold rounded-xl">Be a Volunteer</Link>
+                        <Link to="/need_volunteer" className=" btn btn-primary lg:text-xl font-semibold rounded-xl">Be a Volunteer</Link>
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
@@ -21,7 +21,7 @@ const Banner = () => {
                         <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 bottom-1">
-                        <Link to="/need_volunteer" className=" btn btn-primary text-xl font-semibold rounded-xl">Be a Volunteer</Link>
+                        <Link to="/need_volunteer" className=" btn btn-primary lg:text-xl font-semibold rounded-xl">Be a Volunteer</Link>
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
@@ -31,7 +31,7 @@ const Banner = () => {
                         <a href="#slide4" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 bottom-1">
-                        <Link to="/need_volunteer" className=" btn btn-primary text-xl font-semibold rounded-xl">Be a Volunteer</Link>
+                        <Link to="/need_volunteer" className=" btn btn-primary lg:text-xl font-semibold rounded-xl">Be a Volunteer</Link>
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
@@ -41,7 +41,7 @@ const Banner = () => {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 bottom-1">
-                        <Link to="/need_volunteer" className=" btn btn-primary text-xl font-semibold rounded-xl">Be a Volunteer</Link>
+                        <Link to="/need_volunteer" className=" btn btn-primary lg:text-xl font-semibold rounded-xl">Be a Volunteer</Link>
                     </div>
                 </div>
             </div>

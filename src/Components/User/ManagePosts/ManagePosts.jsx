@@ -38,6 +38,8 @@ const ManagePosts = () => {
 
     // console.log(myPosts, myRequests)
 
+    // Auto Tab1 select
+
     const [activeTab, setActiveTab] = useState('');
 
     useEffect(() => {
@@ -46,8 +48,26 @@ const ManagePosts = () => {
         }
     }, [activeTab]);
 
+    // Loading spinner 
+
+    const [spinner, setSpinner] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setSpinner(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, [])
+
     return (
         <div className="lg:w-5/6 mx-auto py-5">
+
+            <div className="flex justify-center">
+                {
+                    spinner && <span className="loading text-info w-24"></span>
+                }
+            </div>
+
             <h2 className=" text-center text-5xl font-bold mb-5">Manage Posts</h2>
             <hr className=" w-2/3 mx-auto border-blue-700 mb-10" />
 
