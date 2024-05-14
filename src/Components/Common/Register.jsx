@@ -18,7 +18,7 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
-        console.log(name, photo, email, password)
+        // console.log(name, photo, email, password)
 
         const passwordCheck = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 

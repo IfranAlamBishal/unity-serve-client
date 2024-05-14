@@ -73,7 +73,8 @@ const Nav = () => {
 
     return (
         <div className=" bg-white mb-5">
-            <div className="navbar bg-white w-5/6 mx-auto pt-4">
+            <div className="navbar bg-white w-5/6 border-b-2 rounded-2xl
+             fixed top-3 left-auto z-[100] transform translate-x-8 md:translate-x-[70px] lg:translate-x-[125px] ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
