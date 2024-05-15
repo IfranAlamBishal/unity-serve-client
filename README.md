@@ -1,6 +1,30 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+       Website name : Unity Serve 
+       
+       Live link : https://unity-serve.web.app
+
+
+Unity Serve is a volunteer management platform, where an user can post for events or can request to join an event as a volunteer. 
+
+Some key feature of this website :
+
+- User account,
+- User can post events and ask volunteers to join,
+- User can request to join event as a volunteer,
+- Event post and join request update or delete option 
+- Responsive design
+
+
+
+
+
+
+
+
+
+
+
 
 Currently, two official plugins are available:
 
