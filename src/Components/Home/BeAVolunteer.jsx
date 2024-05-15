@@ -98,6 +98,9 @@ const BeAVolunteer = () => {
 
                 <h2 className=" text-xl font-bold mb-3">Name: {displayName}</h2>
                 <p className=" font-medium mb-3">Email: {email}</p>
+
+                <h4 className=" text-base font-medium my-3">Your information will be recorded for further process. <br />
+                    To request to join this event please press the button below</h4>
                 <div className="card-actions justify-center my-5">
                     <Link onClick={handleRequest} className="btn btn-primary text-base font-semibold">Request</Link>
                 </div>

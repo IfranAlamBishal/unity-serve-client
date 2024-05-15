@@ -49,7 +49,7 @@ const UpdatePost = () => {
             deadline: deadline
         }
 
-        console.log(updatePost)
+        // console.log(updatePost)
 
         fetch(`https://unity-serve-server.vercel.app/volunteer_posts/${_id}`, {
             method: 'PUT',
@@ -60,7 +60,7 @@ const UpdatePost = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Updated!",
@@ -69,6 +69,7 @@ const UpdatePost = () => {
                     });
                     navigate("/manage_posts");
                 }
+                
             })
     }
     return (
