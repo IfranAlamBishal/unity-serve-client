@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const MyPost = ({ post }) => {
-    const { _id, thumbnail, title, location, deadline } = post
+    const { _id, thumbnail, title, deadline,  location, } = post
+
 
     const handleDelete = id => {
         Swal.fire({
@@ -32,6 +37,9 @@ const MyPost = ({ post }) => {
             }
         });
     }
+
+ 
+
     return (
         <div className="card sm:card-compact lg:card-side w-[320px] lg:w-full bg-blue-50 shadow-xl my-6 ">
             <figure><img src={thumbnail} alt="Property" className=" w-[320px] h-56" /></figure>
@@ -41,7 +49,8 @@ const MyPost = ({ post }) => {
                 <p>Deadline: {deadline}</p>
 
                 <div className="card-actions justify-center lg:justify-end mt-5">
-                    <Link className="btn btn-accent text-base font-semibold text-white">Update Post</Link>
+                    <Link to={`/update_post/${_id}`} className="btn btn-accent text-base font-semibold text-white">Update Post</Link>
+
                     <Link onClick={() => handleDelete(_id)} className="btn btn-error text-base font-semibold text-white">Delete Post</Link>
                 </div>
             </div>

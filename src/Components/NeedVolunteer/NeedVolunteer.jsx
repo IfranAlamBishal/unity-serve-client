@@ -26,7 +26,7 @@ const NeedVolunteer = () => {
             <h2 className=" text-center text-4xl font-bold my-4">Need Volunteers</h2>
             <h4 className=" text-center text-2xl font-semibold my-4">Available Post: {posts.length}</h4>
             <hr className=" w-2/3 mx-auto py-4 border-gray-500" />
-            <div  className="grid gap-8 md:mx-14">
+            <div  className="grid gap-8 grid-cols-1 md:grid-cols-2 w-full mx-auto">
                 {
                     posts.map(post => <PostCard key={post._id} post={post}></PostCard>)
                 }

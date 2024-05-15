@@ -18,6 +18,7 @@ import Profile from './Components/User/Profile.jsx';
 import ViewDetails from './Components/Home/ViewDetails.jsx';
 import BeAVolunteer from './Components/Home/BeAVolunteer.jsx';
 import ManagePosts from './Components/User/ManagePosts/ManagePosts.jsx';
+import UpdatePost from './Components/User/ManagePosts/UpdatePost.jsx';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
       {
         path: "/volunteer_post",
         element: <Protected><VolunteerPost></VolunteerPost></Protected>,
+      },
+      {
+        path: "/update_post/:id",
+        element: <Protected><UpdatePost></UpdatePost></Protected>,
+        loader: ({params}) => fetch(`https://unity-serve-server.vercel.app/volunteer_posts/${params.id}`)
       },
       {
         path: "/manage_posts",
