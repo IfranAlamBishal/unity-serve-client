@@ -5,13 +5,13 @@
        Live link : https://unity-serve.web.app
 
 
-Unity Serve is a volunteer management platform, where an user can post for events or can request to join an event as a volunteer. 
+"Unity Serve" is a Volunteer Management Platform, where an user can post for events as an organizer or can request to join an event as a volunteer. 
 
-Some key feature of this website :
+# Some key feature of this website :
 
-- User account,
-- User can post events and ask volunteers to join,
-- User can request to join event as a volunteer,
+- User account
+- User can post events and ask volunteers to join
+- User can request to join event as a volunteer
 - Event post and join request update or delete option 
 - Responsive design
 
